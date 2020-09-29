@@ -8,7 +8,7 @@ public class Main {
         Shape rect = new Rectangle(width, height);
         System.out.println(rect.getArea() + " " + rect.getCircumference());
         //System.out.println(trian.getArea() + " " + trian.getCircumference());*/
-//verkar cäll funka?
+//verkar väll funka?
         // jajamän!
     }
 }
