@@ -7,9 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Labb4 {
+public class labb4 {
 
-    public Labb4 (String inputFile) {
+    public labb4(String inputFile) {
         try {
             Scanner sc = new Scanner(new File(inputFile));
             String[] dateStrings = sc.nextLine().split(", ");
@@ -60,6 +60,6 @@ public class Labb4 {
     }
 
     public static void main(String[] args) {
-        new Labb4("testData/Lab4.txt");
+        new com.company.labb4.labb4("testData/Lab4.txt");
     }
 }
