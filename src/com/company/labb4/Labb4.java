@@ -1,4 +1,4 @@
-package com.company.Labb4;
+package com.company.labb4;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,9 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class TollFeeCalculator {
+public class Labb4 {
 
-    public TollFeeCalculator(String inputFile) {
+    public Labb4 (String inputFile) {
         try {
             Scanner sc = new Scanner(new File(inputFile));
             String[] dateStrings = sc.nextLine().split(", ");
@@ -17,7 +17,7 @@ public class TollFeeCalculator {
             for(int i = 0; i < dates.length; i++) {
                 dates[i] = LocalDateTime.parse(dateStrings[i], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             }
-            System.out.println("The total fee for the inputfile is" + getTotalFeeCost(dates));
+            System.out.println("The total fee for the inputfile is " + getTotalFeeCost(dates));
         } catch(IOException e) {
             System.err.println("Could not read file " + inputFile);
         }
@@ -60,6 +60,6 @@ public class TollFeeCalculator {
     }
 
     public static void main(String[] args) {
-        new TollFeeCalculator("src/testdata/Labb4.txt");
+        new Labb4("testData/Lab4.txt");
     }
 }
