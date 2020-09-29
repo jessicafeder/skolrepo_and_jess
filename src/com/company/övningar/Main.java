@@ -18,15 +18,14 @@ public class Main {
         Shape rect = new Rectangle(width, height);
         //System.out.println(rect.getArea() + " " + rect.getCircumference());
         //System.out.println(trian.getArea() + " " + trian.getCircumference());*/
-<<<<<<< HEAD
-=======
+
 //verkar väll funka?
         // jajamän!
     }
 }
->>>>>>> 527b74791f241efb13e888391ffa25528163e0df
 
-        Scanner sc = new Scanner(System.in);
+
+        /*Scanner sc = new Scanner(System.in);
         try{
             while (sc.hasNextLine()) {
                 int x = sc.nextInt();
@@ -46,4 +45,4 @@ public class Main {
         }
         }
 
-    }
+    }*/

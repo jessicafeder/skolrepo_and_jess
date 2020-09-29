@@ -1,4 +1,4 @@
-package com.company.Labb4;
+package com.company.labb4;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class TollFeeCalculator {
             for(int i = 0; i < dates.length; i++) {
                 dates[i] = LocalDateTime.parse(dateStrings[i], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             }
-            System.out.println("The total fee for the inputfile is" + getTotalFeeCost(dates));
+            System.out.println("The total fee for the inputfile is " + getTotalFeeCost(dates));
         } catch(IOException e) {
             System.err.println("Could not read file " + inputFile);
         }
