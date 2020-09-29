@@ -9,6 +9,7 @@ public class Main {
         System.out.println(rect.getArea() + " " + rect.getCircumference());
         //System.out.println(trian.getArea() + " " + trian.getCircumference());*/
 //verkar cäll funka?
+        // jajamän!
     }
 }
 
