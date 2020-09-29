@@ -1,4 +1,4 @@
-package com.company.Labb4;
+package com.company.labb4;
 
 import java.io.File;
 import java.io.IOException;
