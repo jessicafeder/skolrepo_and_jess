@@ -25,7 +25,7 @@ public class Main {
 
 
         Scanner sc = new Scanner(System.in);
-        try{
+        /*try{
             while (sc.hasNextLine()) {
                 int x = sc.nextInt();
                     if (x < 1) {
@@ -41,7 +41,7 @@ public class Main {
             System.err.println("input a larger number");
         } finally {
             sc.close();
-        }
+        }*/
         }
 
     }

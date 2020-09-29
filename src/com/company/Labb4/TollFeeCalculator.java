@@ -13,7 +13,8 @@ public class TollFeeCalculator {
         try {
             Scanner sc = new Scanner(new File(inputFile));
             String[] dateStrings = sc.nextLine().split(", ");
-            LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1];
+            LocalDateTime[] dates = new LocalDateTime[dateStrings.length]; //Ny kod
+            //BUGG NR 1 LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1]; Gammal kod
             for(int i = 0; i < dates.length; i++) {
                 dates[i] = LocalDateTime.parse(dateStrings[i], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             }
@@ -36,7 +37,9 @@ public class TollFeeCalculator {
                 totalFee += Math.max(getTollFeePerPassing(date), getTollFeePerPassing(intervalStart));
             }
         }
-        return Math.max(totalFee, 60);
+        return Math.min(totalFee, 60);
+        //BUGG NR2 tidigare stod Math.max(totalFee, 60); Nu får vi fram minsta värdet som är summan av tiderna
+        //har ändrat en tid så värdet är nu 34
     }
 
     private int getTollFeePerPassing(LocalDateTime date) {
@@ -49,7 +52,7 @@ public class TollFeeCalculator {
         else if (hour == 8 && minute >= 0 && minute <= 29) return 13;
         else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8;
         else if (hour == 15 && minute >= 0 && minute <= 29) return 13;
-        else if (hour == 15 && minute >= 0 || hour == 16 && minute <= 59) return 18;
+        else if (hour == 15 && minute >= 30 || hour == 16 && minute <= 59) return 18;
         else if (hour == 17 && minute >= 0 && minute <= 59) return 13;
         else if (hour == 18 && minute >= 0 && minute <= 29) return 8;
         else return 0;
@@ -60,6 +63,9 @@ public class TollFeeCalculator {
     }
 
     public static void main(String[] args) {
+
         new TollFeeCalculator("src/testdata/Labb4.txt");
     }
 }
+
+//lämna in en fixad fil, plus en fil med våra lösningar på buggar
