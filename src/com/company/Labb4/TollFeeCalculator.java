@@ -46,19 +46,20 @@ public class TollFeeCalculator {
         if (isTollFreeDate(date)) return 0;
         int hour = date.getHour();
         int minute = date.getMinute();
-        if (hour == 6 && minute >= 0 && minute <= 29) return 8;
-        else if (hour == 6 && minute >= 30 && minute <= 59) return 13;
-        else if (hour == 7 && minute >= 0 && minute <= 59) return 18;
-        else if (hour == 8 && minute >= 0 && minute <= 29) return 13;
-        else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8; // denna skall justeras då den just nu ger 0kr på alla tider mellan 8.30-14.00
-        else if (hour == 15 && minute >= 0 && minute <= 29) return 13;              // passeringar inom 60 minuter skall ej debiteras
-        else if (hour == 15 && minute >= 30 || hour == 16 && minute <= 59) return 18;
-        else if (hour == 17 && minute >= 0 && minute <= 59) return 13;
-        else if (hour == 18 && minute >= 0 && minute <= 29) return 8;
+        if (hour == 6 && minute <= 29) return 8;
+        else if (hour == 6 ) return 13;
+        else if (hour == 7 ) return 18;
+        else if (hour == 8 && minute <= 29) return 13;
+        else if (hour == 8 || hour >= 9 && hour <= 14) return 8; // BUGG NR 4 justerat så att den läser allt mellan 8-14
+        // kod innan else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8;
+        else if (hour == 15 && minute <= 29) return 13;              // BUGG NR 5 passeringar inom 60 minuter skall ej debiteras
+        else if (hour == 15 || hour == 16 ) return 18;
+        else if (hour == 17 ) return 13;
+        else if (hour == 18 && minute <= 29) return 8;
         else return 0;
     }
 
-    private boolean isTollFreeDate(LocalDateTime date) {
+    private boolean isTollFreeDate(LocalDateTime date) { //BUGG NR3 programmet kör 10.13 två gånger
         return date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7 || date.getMonth().getValue() == 7;
     }
 
