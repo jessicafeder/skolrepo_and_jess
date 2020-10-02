@@ -32,10 +32,13 @@ public class TollFeeCalculator {
             long diffInMinutes = intervalStart.until(date, ChronoUnit.MINUTES);
             if(diffInMinutes > 60) {
                 totalFee += getTollFeePerPassing(date);
-                intervalStart = date;
+                System.out.println(totalFee);
             } else {
+                totalFee -= Math.min(getTollFeePerPassing(date), getTollFeePerPassing(intervalStart)); // -= för att ta fram math.min
                 totalFee += Math.max(getTollFeePerPassing(date), getTollFeePerPassing(intervalStart));
+                System.out.println(totalFee);
             }
+            intervalStart = date; // detta körs så att den inte kör en tid flera gånger, så intervalStart blir den innan man sett //BUGG NR3 programmet kör 10.13 två gånger
         }
         return Math.min(totalFee, 60);
         //BUGG NR2 tidigare stod Math.max(totalFee, 60); Nu får vi fram minsta värdet som är summan av tiderna
@@ -59,7 +62,7 @@ public class TollFeeCalculator {
         else return 0;
     }
 
-    private boolean isTollFreeDate(LocalDateTime date) { //BUGG NR3 programmet kör 10.13 två gånger
+    private boolean isTollFreeDate(LocalDateTime date) {
         return date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7 || date.getMonth().getValue() == 7;
     }
 
