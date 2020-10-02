@@ -1,4 +1,5 @@
-//BUGG NR 1 LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1]; Gammal kod
+//BUGG NR 1 LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1]; Gammal kod, läste inte hela listan innan
 //BUGG NR 2 tidigare stod Math.max(totalFee, 60); Nu får vi fram minsta värdet som är summan av tiderna
 //BUGG NR 3 denna skall justeras då den just nu ger 0kr på alla tider mellan 8.30-14.00. Kod innan else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8;
 //BUGG NR 5 passeringar inom 60 minuter skall ej debiteras
+//BUGG NR 6 Läser inte nya månader
