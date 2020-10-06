@@ -13,7 +13,7 @@ public class TollFeeCalculator {
         try {
             Scanner sc = new Scanner(new File(inputFile));
             String[] dateStrings = sc.nextLine().split(", ");
-            LocalDateTime[] dates = new LocalDateTime[dateStrings.length]; //Ny kod
+            LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1]; //Ny kod
             //BUGG NR 1 LocalDateTime[] dates = new LocalDateTime[dateStrings.length-1]; Gammal kod
             for(int i = 0; i < dates.length; i++) {
                 dates[i] = LocalDateTime.parse(dateStrings[i], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));

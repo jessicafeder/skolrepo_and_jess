@@ -6,23 +6,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 @DisplayName("Testing isTollFreeDate")
-public class TollFeeCalculatorTest{
+public class TollFeeCalculatorTest {
     @Test
-    void isTollFreeDate(){
+    void isTollFreeDate() {
         LocalDateTime date = LocalDateTime.parse("2020-06-01 10:00", DateTimeFormatter.ofPattern("yyyy-MM-DD HH:MM"));
         assertTrue(TollFeeCalculator.isTollFreeDate(date));
     }
 
-@DisplayName("Testing Array")
+    @DisplayName("Testing Array length")
     @Test
-    void TollFeeCalculator(){
-        OptionalDataException dateStrings = null;
-        LocalDateTime[] dates = new LocalDateTime[dateStrings.length];
-    assertEquals("The array length is not what was expected!", (long) array.length - 1, (long) modifiedArray.length);
+    void TollFeeCalculator() {
+        new TollFeeCalculator = new TollFeeCalculator("src/testdata/Labb4.txt");
+    assertTrue(TollFeeCalculator. == dates.lenght);
 
     }
-
 }
 
 // vi kan köra ungefär samma som ovan till att testa bugg nr 1 som är math.max
