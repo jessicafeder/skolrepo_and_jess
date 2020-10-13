@@ -25,6 +25,46 @@ public class TollFeeCalculatorTest {
     }
 
     @Test
+    @DisplayName("Test Error message from TooManyDays")
+    void TestTooManyDays() {
+        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(errContent));
+        String files = "src/testdata/differentDays.txt";
+        new TollFeeCalculator(files);
+        assertEquals("Only one day per file is allowed.", errContent.toString().trim());
+    }
+
+    @Test
+    @DisplayName("Test if a file is not found")
+    void FileNotFound() {
+        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(errContent));
+        String inputFile= "src/testdata/nofile.txt";
+        new TollFeeCalculator(inputFile);
+        assertEquals("File cannot be accessed: " + inputFile, errContent.toString().trim());
+    }
+
+    @Test
+    @DisplayName("Test if minutes are sorted")
+    void SortMinutes() {
+        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(errContent));
+        String inputFile= "src/testdata/unsortedDates.txt";
+        new TollFeeCalculator(inputFile);
+        assertEquals("Sort minutes in inputfile", errContent.toString().trim());
+    }
+
+    @Test
+    @DisplayName("Test if date format is correct")
+    void DateFormat() {
+        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(errContent));
+        String inputFile= "src/testdata/dateFormatWrong.txt";
+        new TollFeeCalculator(inputFile);
+        assertEquals("Could not read file. Check time or date format", errContent.toString().trim());
+    }
+
+    @Test
     @DisplayName("Testing if toll free works")
     void isTollFreeDate() {
         LocalDateTime[] dates = new LocalDateTime[5];
@@ -126,7 +166,7 @@ public class TollFeeCalculatorTest {
         "\n" +
         "The total fee for the inputfile is: 37\n";
 
-
+        assertEquals(expectedOutput, actualOutput);
     }
 
 }

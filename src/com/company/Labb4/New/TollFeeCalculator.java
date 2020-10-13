@@ -16,7 +16,7 @@ public class TollFeeCalculator {
         } catch(TooManyDaysException | SortMinutesException e){
             System.err.println(e.getMessage());
         } catch(DateTimeParseException e) {
-            System.err.println("Could not read file. Check time format");
+            System.err.println("Could not read file. Check time or date format");
         } catch(FileNotFoundException e){
             System.err.println("File cannot be accessed: " + inputFile);
         } catch(Exception e){
@@ -98,8 +98,8 @@ public class TollFeeCalculator {
         /*new TollFeeCalculator("src/testdata/Labb4.txt");
         new TollFeeCalculator("src/testdata/test2.txt");
         new TollFeeCalculator("src/testdata/unsortedDates.txt");
-        new TollFeeCalculator("src/testdata/differentDays.txt");*/
-        new TollFeeCalculator("src/testdata/passagesUnder60Min.txt");
+        new TollFeeCalculator("src/testdata/differentDays.txt");
+        new TollFeeCalculator("src/testdata/passagesUnder60Min.txt");*/
 
 
     }
