@@ -95,10 +95,12 @@ public class TollFeeCalculator {
 
     public static void main(String[] args) {
 
-        new TollFeeCalculator("src/testdata/Labb4.txt");
-        /*new TollFeeCalculator("src/testdata/test2.txt");
+        /*new TollFeeCalculator("src/testdata/Labb4.txt");
+        new TollFeeCalculator("src/testdata/test2.txt");
         new TollFeeCalculator("src/testdata/unsortedDates.txt");
         new TollFeeCalculator("src/testdata/differentDays.txt");*/
+        new TollFeeCalculator("src/testdata/passagesUnder60Min.txt");
+
 
     }
 }
